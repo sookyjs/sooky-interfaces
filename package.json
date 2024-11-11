@@ -2,13 +2,30 @@
   "name": "sooky-interfaces",
   "version": "1.0.0",
   "description": "Core interfaces for Sooky",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   },
-  "author": "",
+  "author": "Nazim Boudeffa <https://github.com/nazimboudeffa>",
+  "contributors": [
+    {
+      "name": "Nazim Boudeffa",
+      "url": "https://github.com/nazimboudeffa"
+    },
+    {
+      "name": "Salim Benfarhat",
+      "url": "https://github.com/salimbenfarhat"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "mongoose": "^8.8.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^10.1.2"
   }
 }
