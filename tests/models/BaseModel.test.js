@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
-const BaseModel = require('../../src/models/BaseModel');
+import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import BaseModel from '../../src/models/BaseModel.js';
 
 // Définition d'un schéma simple pour le test
 const testSchema = {

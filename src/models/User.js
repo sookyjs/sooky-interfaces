@@ -1,4 +1,4 @@
-const BaseModel = require('./BaseModel');
+import BaseModel from './BaseModel.js';
 
 const userSchema = {
     name: { type: String, required: true },
@@ -9,9 +9,10 @@ const userSchema = {
 
 class User extends BaseModel {
     static modelName = 'User';
+
     constructor() {
         super(userSchema); // Passe le schéma au constructeur de BaseModel
     }
 }
 
-module.exports = new User().getModel(); // Exporte le modèle Mongoose prêt à l'emploi
+export default new User().getModel(); // Exporte le modèle Mongoose prêt à l'emploi

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
-const userService = require('../../src/services/UserService');
+import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import userService from '../../src/services/UserService.js';
 
 let mongoServer;
 
@@ -71,5 +71,18 @@ describe('Additional BaseService operations', () => {
         const updatedUser = await userService.update(user._id, { age: 34 });
         expect(updatedUser).not.toBeNull();
         expect(updatedUser.age).toBe(34);
+    });
+
+    it('should return a matching document with findOne', async () => {
+        const user = await userService.create({ name: 'FindOneTest', email: 'findone@example.com', age: 30 });
+        const foundUser = await userService.findOne({ name: 'FindOneTest' });
+        expect(foundUser).not.toBeNull();
+        expect(foundUser.name).toBe('FindOneTest');
+        expect(foundUser.email).toBe('findone@example.com');
+    });
+
+    it('should return null if no matching document is found with findOne', async () => {
+        const foundUser = await userService.findOne({ name: 'NonExistentUser' });
+        expect(foundUser).toBeNull();
     });
 });
