@@ -3,7 +3,7 @@
  * model and is as such compatible with MongoDB.
  */
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 class BaseModel {
     constructor(schemaDefinition, options = {}) {
@@ -28,4 +28,4 @@ class BaseModel {
     aggregate(pipeline, options) { return this.getModel().aggregate(pipeline, options); }
 }
 
-module.exports = BaseModel;
+export default BaseModel;

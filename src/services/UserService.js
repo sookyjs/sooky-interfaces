@@ -1,5 +1,5 @@
-const BaseService = require('./BaseService');
-const UserModel = require('../models/User');
+import BaseService from './BaseService.js';
+import UserModel from '../models/User.js';
 
 class UserService extends BaseService {
     constructor() {
@@ -23,5 +23,4 @@ class UserService extends BaseService {
     // Vous pouvez ajouter d'autres méthodes spécifiques ici...
 }
 
-
-module.exports = new UserService(); // Exporte une instance du service
+export default new UserService() // Exporte une instance du service

@@ -1,13 +1,14 @@
-const readline = require('readline').createInterface({
+import mongoose from 'mongoose';
+import userService from './services/UserService.js';
+import readline from 'readline';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
-
-const mongoose = require('mongoose');
-const userService = require('./services/UserService');
-
-
-require('dotenv').config();
 
 // Fonction pour déterminer l'URI de MongoDB en fonction de l'environnement
 const getMongoUri = () => {
@@ -34,7 +35,7 @@ async function connectToDatabase() {
 }
 // Prompt asynchrone pour les questions utilisateur
 function questionPrompt(question) {
-    return new Promise(resolve => readline.question(question, resolve));
+    return new Promise(resolve => rl.question(question, resolve));
 }
 
 // Démarrage de l'application
@@ -119,7 +120,7 @@ async function stop() {
         console.log('Base de données nettoyée.');
         await mongoose.disconnect();
         console.log('Déconnecté de MongoDB.');
-        readline.close();
+        rl.close();
         process.exit(0);
     } catch (error) {
         console.error('Erreur lors du nettoyage:', error);

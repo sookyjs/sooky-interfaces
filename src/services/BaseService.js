@@ -15,4 +15,4 @@ class BaseService {
     async deleteById(id) { return this.model.findByIdAndDelete(id); }
 }
 
-module.exports = BaseService;
+export default BaseService;

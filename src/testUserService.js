@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
-const userService = require('./services/UserService');
+import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import userService from './services/UserService.js';
 
 async function runTest() {
     const mongoServer = await MongoMemoryServer.create();
