@@ -5,7 +5,7 @@
 
 import mongoose from 'mongoose';
 
-class BaseModel {
+export class BaseModel {
     constructor(schemaDefinition, options = {}) {
         this.schema = new mongoose.Schema(schemaDefinition, options);
         this.modelName = this.constructor.modelName || this.constructor.name;
@@ -27,5 +27,3 @@ class BaseModel {
     countDocuments(query, options) { return this.getModel().countDocuments(query, options); }
     aggregate(pipeline, options) { return this.getModel().aggregate(pipeline, options); }
 }
-
-export default BaseModel;
