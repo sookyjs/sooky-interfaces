@@ -1,17 +1,17 @@
-import BaseModel from './BaseModel.js';
-
-const userSchema = {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    age: { type: Number },
-    // ... autres champs ...
-};
+import { BaseModel } from './BaseModel.js';
 
 class User extends BaseModel {
     static modelName = 'User';
 
+    static schema = {
+        name: { type: String, required: true },
+        email: { type: String, required: true, unique: true },
+        age: { type: Number },
+        // ... autres champs ...
+    };
+
     constructor() {
-        super(userSchema); // Passe le schéma au constructeur de BaseModel
+        super(User.schema); // Passe le schéma au constructeur de BaseModel
     }
 }
 
